@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Point</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Smart Study Point</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#login" class="btn" onclick="openLoginModal()">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <div class="hero">
+            <h1>Learn Anytime, Anywhere</h1>
+            <p>Join our online courses and upgrade your skills.</p>
+            <a href="#courses" class="btn">Explore Courses</a>
+        </div>
+    </section>
+    
+    <section id="courses">
+        <h2>Popular Courses</h2>
+        <div class="course-list">
+            <div class="course">
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS, JavaScript, and more.</p>
+                <button class="enroll-btn">Enroll Now</button>
+            </div>
+            <div class="course">
+                <h3>Python Programming</h3>
+                <p>Master Python for Data Science & AI.</p>
+                <button class="enroll-btn">Enroll Now</button>
+            </div>
+            <div class="course">
+                <h3>Data Structures & Algorithms</h3>
+                <p>Crack coding interviews with DSA skills.</p>
+                <button class="enroll-btn">Enroll Now</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Smart Study Point is your gateway to a smarter learning experience.</p>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@smartstudy.com | Phone: +123456789</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Smart Study Point. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <input type="text" id="emailPhone" placeholder="Email or Phone Number">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="loginUser()">Login</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.enroll-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('You have successfully enrolled!');
+            });
+        });
+
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function loginUser() {
+            let emailPhone = document.getElementById('emailPhone').value;
+            let password = document.getElementById('password').value;
+            if (emailPhone && password) {
+                alert('Login Successful!');
+                closeLoginModal();
+            } else {
+                alert('Please enter valid credentials');
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            padding: 15px;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background: #007BFF;
+            color: white;
+            padding: 50px 20px;
+        }
+        .btn {
+            background: white;
+            color: #007BFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .course-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .course {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .enroll-btn {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .modal input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+        }
+        .modal button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</body>
+</html>
